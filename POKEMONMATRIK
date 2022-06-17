@@ -1,14 +1,10 @@
 #include <iostream>
-#include <conio.h>
-#include <time.h>
-#include <stdlib.h>
-#include <windows.h>
 using namespace std;
 
 #define tombolAtas 72
-#define tombolBawah 80 
-#define tombolKanan 75
-#define tombolKiri 77
+#define tombolBawah 80
+#define tombolKiri 75
+#define tombolKanan 77
 
 void header(){
     cout << "=================================" << endl;
@@ -18,16 +14,14 @@ void header(){
     cout << "      Mari Kita Bermain!!!" << endl;
 }
 
-struct pokemons {
-    int id; 
-    int hp;
-    string nama;
-    string kemampuan;
-    string kekuatanPokemon; 
-}
+struct pokemons{
+	string nama;
+	string kemampuan;
+	int hp;
+};
 
-int main()
-{
+int main() {
+	
     /*Permainan Pokemon
     ATURAN 
     1. jalur (dapat dilewati)
@@ -45,181 +39,100 @@ int main()
     
     pokemons pokemon[] = {
     {
-        1, 
-        80,
         "Artaria",
         "Flying",
         100,
     },
     {
-        2, 
-        70,
         "Arceus",
         "Fire",
         80,
     },
     {
-        3, 
-        75,
         "Slugma",
         "Fire",
         75,
     },
     {
-        4, 
-        80,
         "Xatu",
         "Flying",
         85,
     },
     {
-        5,
-        90,
         "Magcargo",
         "Fire",
         90,
     },
 };
     
-	int panjangPeta = 25;
-	int lebarPeta = 20;
+    int panjangPeta = 10; //x
+	int lebarPeta = 10; //y 
 	
-	int posisiKarakterY = 20;
-	int posisiKarakterX = 15;
-	
-	cout << "Karakter Terdapat Pada Posisi : " << posisiKarakterY << ", x" << posisiKarakterX << "\n";
-	
-	int peta[lebarPeta][panjangPeta] = {
-		{5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5},
-		{5,3,3,3,3,3,1,1,1,1,1,1,1,1,1,3,3,3,3,5},
-		{5,3,3,3,3,3,1,1,1,1,1,1,1,1,1,3,3,3,3,5},
-		{5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,3,3,5},
-		{5,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5},
-		{5,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5},
-		{5,4,4,1,1,1,1,1,1,1,2,2,2,2,2,2,1,1,6,5},
-		{5,4,4,2,2,2,1,1,1,1,2,2,2,2,2,2,1,6,6,5},
-		{5,6,6,1,1,1,1,1,1,1,2,2,2,2,2,2,1,6,6,5},
-		{5,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,1,1,5,5},
-		{5,3,3,3,3,2,2,2,1,1,1,1,1,1,1,1,1,3,3,5},
-		{5,3,3,3,3,2,2,2,1,1,1,1,1,1,1,1,1,3,3,5},
-		{5,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,3,3,5},
-		{5,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,3,3,5},
-		{5,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,5},
-		{5,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,5},
-		{5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5},
-		{5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,4,5},
-		{5,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,4,4,5},
-		{5,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,4,4,5},
-		{5,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3,5},
-		{5,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,3,3,5},
-		{5,6,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5},
-		{5,6,6,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,5},
-		{5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5},
+	int posisiKarakterY = 5;
+	int posisiKarakterX = 4;
+    
+    cout << "Karakter di posisi Y = " << posisiKarakterY << ", X = " << posisiKarakterX << "\n";
+    
+int peta[lebarPeta][panjangPeta] = {
+		{5,5,5,5,5,5,5,5,5,5},
+		{5,3,3,3,3,3,1,1,1,1},
+		{5,3,3,3,3,3,1,1,1,1},
+		{5,1,1,1,1,1,1,1,1,1},
+		{5,6,1,1,1,1,1,1,1,1},
+		{5,6,1,1,1,1,1,1,1,1},
+		{5,4,4,1,1,1,1,1,1,1},
+		{5,4,4,2,2,2,1,1,1,1},
+		{5,6,6,1,1,1,1,1,1,1},
+		{5,1,1,1,1,1,1,1,1,1},
 	};
-	
-	int tombolPanah = 0;
-	
-/*
-#define tombolAtas 72
-#define tombolBawah 80
-#define tombolKiri 77
-#define tombolKanan 75
-*/	
-	
-do {
-	//Input Tombol Panah 
-	cout << "Masukkan Angka Tombol Panah: ";
-	cin >> tombolPanah;
-	cout << "Tombol Panah Yang Dimasukkan : " << tombolPanah << "\n" << endl;
-	
-	//Aturan Menggerakan Ke Atas 
-	if (tombolPanah == 72 && (peta[posisiKarakterY-1][posisiKarakterX] == 1||peta[posisiKarakterY-1][posisiKarakterX] == 2||peta[posisiKarakterY-1][posisiKarakterX] == 3||peta[posisiKarakterY-1][posisiKarakterX] == 6) && posisikarakterY >= 0){
+    
+    
+    int tombolPanah = 0;
+    
+  	/*
+	#define tombolAtas 72
+	#define tombolBawah 80
+	#define tombolKiri 77
+	#define tombolKanan 75
+	*/	
+    
+    while(1) {
+        // Input Keyboard
+        cout << "Masukkan Angka Tombol Panah\t: ";
+        cin >> tombolPanah;
+        cout << "Tombol Panah yang dimasukkan " << tombolPanah << "\n";
+        
+       	//Aturan Menggerakan Ke Atas 
+		if (tombolPanah == 72 && (peta[posisiKarakterY-1][posisiKarakterX] == 1||peta[posisiKarakterY-1][posisiKarakterX] == 2||peta[posisiKarakterY-1][posisiKarakterX] == 3||peta[posisiKarakterY-1][posisiKarakterX] == 6) && posisiKarakterY >= 0){
 		//Karakter Bergerak Ke Atas
 		posisiKarakterY = posisiKarakterY-1;
-	}
-	if (tombolPanah == 80 && (peta[posisiKarakterY+1][posisiKarakterX] == 1||peta[posisiKarakterY+1][posisiKarakterX] == 2||peta[posisiKarakterY+1][posisiKarakterX] == 3||peta[posisiKarakterY+1][posisiKarakterX] == 6) && posisiKarakterY < lebarPeta){
+		}
+		if (tombolPanah == 80 && (peta[posisiKarakterY+1][posisiKarakterX] == 1||peta[posisiKarakterY+1][posisiKarakterX] == 2||peta[posisiKarakterY+1][posisiKarakterX] == 3||peta[posisiKarakterY+1][posisiKarakterX] == 6) && posisiKarakterY < lebarPeta){
 		//Karakter Bergerak Ke Bawah
 		posisiKarakterY = posisiKarakterY+1;
-	}
-	if (tombolPanah == 77 && (peta[posisiKarakterY][posisiKarakterX-1] == 1||peta[posisiKarakterY][posisikarakterX-1] == 2||peta[posisiKarakterY][posisiKarakterX-1] == 3||peta[posisiKarakterY][oosisiKarakterX-1] == 6) && posisiKarakterX >= 0){
+		}
+		if (tombolPanah == 77 && (peta[posisiKarakterY][posisiKarakterX-1] == 1||peta[posisiKarakterY][posisiKarakterX-1] == 2||peta[posisiKarakterY][posisiKarakterX-1] == 3||peta[posisiKarakterY][posisiKarakterX-1] == 6) && posisiKarakterX >= 0){
 		//Karakter Bergerak Ke Kiri
 		posisiKarakterX = posisiKarakterX-1;
-	}
-	if (tombolPanah == 75 && (peta[posisiKarakterY][posisiKarakterX+1] == 1||peta[posisiKarakterY][posisiKarakterX+1] == 2||peta[posisiKarakterY][posisiKarakterX+1] == 3||peta[posisiKarakterY][posisiKarakterX+1] == 6) && posisiKarakterX < panjangPeta){
+		}
+		if (tombolPanah == 75 && (peta[posisiKarakterY][posisiKarakterX+1] == 1||peta[posisiKarakterY][posisiKarakterX+1] == 2||peta[posisiKarakterY][posisiKarakterX+1] == 3||peta[posisiKarakterY][posisiKarakterX+1] == 6) && posisiKarakterX < panjangPeta){
 		//Karakter Bergerak Ke Kanan
-		posisiKarakterx = posisiKarakterX+1;
-	}
-}	
-
-//Render Grafik 
-for (int y = 0; y < lebarPeta; y++){
-	for (int x = 0; x < panjangPeta; x++){
-		if (posisiKarakterX == x && posisiKarakterY = y){
-			cout << 0 << " ";
+		posisiKarakterX = posisiKarakterX+1;
 		}
-		else {
-			cout << peta[y][x] << " ";
-		}
-	}
-	cout << endl; 
-}
-
-if (koordinatKarakter == 2 || koordinatKarakter == 3){
-	int kemunculanPokemon;
-	srand (time(NULL));
-	kemunculanPokemon = rand() % 10;
-	
-	if (kemunculanPokemon < 3){
-	char berkelahiataulari;
-	cout << "=====================================" << endl;
-		cout << "Apa Yang Akan Dilakukan?\n1) fight\n2) run\n" << endl;
-		cout << "Pilihan Anda: ";
-		berkelahiataulari = getch();	
-	
-	if (berkelahiataulari == '1') {
-			cout << endl;
-			for (int i = 0; i < 5; i++) {
-				kemunculanPokemon++;
-				if (kemunculanPokemon == 10) {
-					kemunculanPokemon == 0;
-				}
-				if (koordinasiKarakter == 2) {
-					if (pokemon[kemunculanPokemon].kemampuan== "Fire") {
-						cout << "Kamu Akan Berkelahi" << pokemon[kemunculanPokemon].nama << endl;
-						break;
-					}
-				} 
-				else if (koordinatKarakter == 3) {
-					if (pokemon[kemunculanPokemon].kemampuan== "Flying") {
-						cout << "\nKamu Akan Berkelahi" << pokemon[kemunculanPokemon].nama << endl;
-						break;
-					}
-			}
-	}
-	
-	cout << "Pokemon yang tersedia : " << pokemon[5].nama << endl;
-	int hpPokemon, hpPemainPokemon;
-	hpPokemon = pokemon[kemunculanPokemon].hp;
-	hpPemainPokemon = pokemon[kemunculanPokemon].hp;
-	
-while (hpPokemon > 0) {
-	cout << pokemon[5].nama << "   vs   " << pokemon[kemunculanPokemon].nama << endl;
-	cout << "hp: " << hpPemainPokemon << "         hp: " << hpPokemon << endl;
-	cout << "\nKemampuan: \n";
-	for (int i = 0; i < 3; i++) {
-		cout << i + 1 << ") "<< pokemon[5].kekuatanPokemon[i] << endl;
-	}
-
-	if (hpPokemon <= 0){
-    	cout << pokemon[5].nama << "    vs  " << pokemon[kemunculanPokemon] << endl;
-    		if (hpPokemon < 0){
-       			hpPokemon = 0;
-        		cout << "hp: " << hpPemainPokemon << ", hp: " << hpPokemon << endl; 
-        		hpPokemon = pokemon[kemunculanPokemon].hp;
-        		cout << "-----------YEAYYY!!KAMU MENANG!!!-----------" << endl;
-				}
-			}
-		}
-	}
-	} 
+        
+        // Render grafik
+        for(int y=0; y<lebarPeta; y++) {
+            for(int x=0; x<panjangPeta; x++) {
+                
+                if(posisiKarakterX == x && posisiKarakterY == y) {
+                    cout << 0 << " ";
+                } else {
+                    cout << peta[y][x] << " ";
+                }
+            }
+            cout << "\n";
+        }
+    }
+    
+    return 0;
 }
